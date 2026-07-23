@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windcraft Support — サポート</title>
+<style>
+  :root{
+    --ink:#0c0d10;
+    --ink-soft:#14161b;
+    --line:#262a33;
+    --text:#dfe2e8;
+    --muted:#878d9b;
+    --gold:#e8b84b;
+    --teal:#4ecdc4;
+    --mono:"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px 96px}
+
+  /* ---- header ---- */
+  header{position:relative;padding:64px 0 40px;overflow:hidden}
+  .trails{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+  .trails path{fill:none;stroke-linecap:round;stroke-width:2}
+  .t1{stroke:var(--gold);stroke-dasharray:220;stroke-dashoffset:220;animation:draw 3.2s ease-out .2s forwards}
+  .t2{stroke:var(--teal);stroke-dasharray:260;stroke-dashoffset:260;animation:draw 3.6s ease-out .5s forwards}
+  .t3{stroke:var(--gold);stroke-dasharray:160;stroke-dashoffset:160;opacity:.6;animation:draw 2.8s ease-out .9s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @media (prefers-reduced-motion:reduce){
+    .t1,.t2,.t3{animation:none;stroke-dashoffset:0}
+  }
+  .eyebrow{
+    position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 14px
+  }
+  h1{
+    position:relative;font-family:var(--mono);font-weight:400;
+    font-size:clamp(28px,6vw,40px);letter-spacing:.06em;margin:0 0 8px
+  }
+  .tagline{position:relative;color:var(--muted);font-size:15px;margin:0}
+
+  /* ---- language switch ---- */
+  .lang{
+    display:flex;gap:2px;margin:28px 0 0;padding:3px;
+    border:1px solid var(--line);border-radius:999px;width:max-content
+  }
+  .lang button{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+    background:none;border:0;color:var(--muted);
+    padding:7px 18px;border-radius:999px;cursor:pointer;transition:.18s
+  }
+  .lang button[aria-pressed="true"]{background:var(--teal);color:#06232a}
+  .lang button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* ---- contact ---- */
+  .contact{
+    display:block;margin:36px 0 0;padding:20px 22px;
+    background:var(--ink-soft);border:1px solid var(--line);border-radius:12px;
+    text-decoration:none;color:inherit;transition:border-color .18s
+  }
+  .contact:hover,.contact:focus-visible{border-color:var(--gold)}
+  .contact .label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px
+  }
+  .contact .mail{font-family:var(--mono);font-size:16px;color:var(--gold);word-break:break-all}
+
+  /* ---- sections ---- */
+  section{margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+  h2{
+    font-family:var(--mono);font-weight:400;font-size:20px;
+    letter-spacing:.05em;margin:0 0 4px
+  }
+  .sub{color:var(--muted);font-size:13px;margin:0 0 24px;font-family:var(--mono);letter-spacing:.08em}
+  h3{font-size:15px;font-weight:600;margin:28px 0 6px;color:#fff}
+  p{margin:0 0 14px;font-size:15px}
+  ul{margin:0 0 14px;padding-left:20px;font-size:15px}
+  li{margin-bottom:6px}
+  li::marker{color:var(--teal)}
+  strong{color:#fff;font-weight:600}
+
+  footer{
+    margin-top:64px;padding-top:28px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)
+  }
+  [data-lang]{display:none}
+  [data-lang].on{display:block}
+  li[data-lang].on{display:list-item}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <svg class="trails" viewBox="0 0 720 240" preserveAspectRatio="none" aria-hidden="true">
+    <path class="t1" d="M40,190 C160,150 250,60 340,40"/>
+    <path class="t2" d="M120,220 C300,180 480,150 690,50"/>
+    <path class="t3" d="M420,210 C500,180 560,140 660,130"/>
+  </svg>
+  <p class="eyebrow">Windcraft</p>
+  <h1>Support</h1>
+  <p class="tagline" data-lang="ja">Windcraft制作アプリのサポート窓口です。</p>
+  <p class="tagline" data-lang="en">Help and contact for apps made by Windcraft.</p>
+
+  <div class="lang" role="group" aria-label="Language / 言語">
+    <button type="button" id="btn-ja" aria-pressed="true">日本語</button>
+    <button type="button" id="btn-en" aria-pressed="false">ENGLISH</button>
+  </div>
+</header>
+
+<a class="contact" href="mailto:windcraft.support@gmail.com">
+  <span class="label" data-lang="ja">お問い合わせ</span>
+  <span class="label" data-lang="en">Contact</span>
+  <span class="mail">windcraft.support@gmail.com</span>
+</a>
+
+<!-- ============ Hikari Camera ============ -->
+<section>
+  <h2>Hikari Camera</h2>
+  <p class="sub" data-lang="ja">光跡カメラ</p>
+  <p class="sub" data-lang="en">Light trail photography</p>
+
+  <p data-lang="ja">暗い部屋でペンライトなどの光る物を動かすと、その軌跡が写真や動画として美しく残るカメラアプリです。CG合成ではなく、実際の光をそのまま記録します。</p>
+  <p data-lang="en">Move a penlight or any glowing object in a dark room, and the app records its path as luminous trails in photos and video. Nothing is computer-generated — every streak is real light.</p>
+
+  <h3 data-lang="ja">使い方</h3>
+  <h3 data-lang="en">Getting started</h3>
+  <ul>
+    <li data-lang="ja">部屋を暗くします。暗いほどきれいに撮れます。</li>
+    <li data-lang="ja">シャッターを押して、光る物を動かします。</li>
+    <li data-lang="ja">写真モードは指定した秒数で自動的に撮影、動画モードはもう一度押すと停止します。</li>
+    <li data-lang="ja">ガイドテンプレートを使うと、ハート・星・円などの形に沿って光跡を描けます。</li>
+    <li data-lang="en">Darken the room. The darker it is, the better the result.</li>
+    <li data-lang="en">Press the shutter and move your light.</li>
+    <li data-lang="en">Photo mode captures for the duration you set; in video mode, press again to stop.</li>
+    <li data-lang="en">Guide templates let you trace shapes like hearts, stars, and circles.</li>
+  </ul>
+
+  <h3 data-lang="ja">きれいに撮るコツ</h3>
+  <h3 data-lang="en">Tips for better shots</h3>
+  <ul>
+    <li data-lang="ja">LEDペンライトがおすすめです。</li>
+    <li data-lang="ja">三脚や固定台を使ってください。カメラが動くと光跡がずれて写ります。</li>
+    <li data-lang="ja">光が写らないときは<strong>感度</strong>を上げてください。周りの明かりまで写るときは下げます。</li>
+    <li data-lang="ja"><strong>残像</strong>はOFFで軌跡が消えずに残り、上げると彗星のように流れます。</li>
+    <li data-lang="en">An LED penlight works best.</li>
+    <li data-lang="en">Use a tripod or a stable stand — if the camera moves, the trails come out misaligned.</li>
+    <li data-lang="en">If the light isn't picked up, raise <strong>Sens.</strong> If ambient light shows up too, lower it.</li>
+    <li data-lang="en">With <strong>Trail</strong> off, streaks stay forever; raise it and they fade like a comet.</li>
+  </ul>
+
+  <h3 data-lang="ja">PRO版でできること</h3>
+  <h3 data-lang="en">What PRO adds</h3>
+  <ul>
+    <li data-lang="ja">動画録画(光の軌跡をそのまま動画に記録)</li>
+    <li data-lang="ja">Zoom Trail(録画中のズームで光跡をさらに幻想的に)</li>
+    <li data-lang="ja">音声収録、透かしの除去</li>
+    <li data-lang="en">Video recording — capture light trails as video</li>
+    <li data-lang="en">Zoom Trail — zoom while recording for a more magical effect</li>
+    <li data-lang="en">Audio recording, and no watermark</li>
+  </ul>
+  <p data-lang="ja">買い切りです。機種変更などで購入が反映されないときは、購入画面の<strong>「購入を復元」</strong>をお試しください。同じApple IDであれば復元できます。</p>
+  <p data-lang="en">PRO is a one-time purchase. If it doesn't appear on a new device, tap <strong>Restore Purchases</strong> on the purchase screen — it restores as long as you use the same Apple ID.</p>
+
+  <h3 data-lang="ja">うまくいかないとき</h3>
+  <h3 data-lang="en">Troubleshooting</h3>
+  <ul>
+    <li data-lang="ja"><strong>カメラが映らない</strong> — 設定アプリ &gt; プライバシーとセキュリティ &gt; カメラ で、本アプリを許可してください。</li>
+    <li data-lang="ja"><strong>音声が入らない</strong> — 同じく設定アプリでマイクを許可してください。</li>
+    <li data-lang="ja"><strong>保存できない</strong> — 写真へのアクセス許可と、端末の空き容量をご確認ください。</li>
+    <li data-lang="en"><strong>No camera image</strong> — allow camera access in Settings &gt; Privacy &amp; Security &gt; Camera.</li>
+    <li data-lang="en"><strong>No sound in video</strong> — allow microphone access in the same Settings screen.</li>
+    <li data-lang="en"><strong>Can't save</strong> — check photo library permission and free storage on your device.</li>
+  </ul>
+</section>
+
+<!-- ============ Iroha ============ -->
+<section>
+  <h2>Iroha</h2>
+  <p class="sub" data-lang="ja">五十音パズルいろは</p>
+  <p class="sub" data-lang="en">Japanese kana puzzle</p>
+
+  <p data-lang="ja">「いろはにほへと」のように、五十音を一文字ずつ使って意味のある長い文章を作る遊びです。作った結果はX(旧Twitter)に投稿できます。</p>
+  <p data-lang="en">A word game in the tradition of the classic <em>Iroha</em> poem: build the longest meaningful sentence you can, using each kana character exactly once. You can share your result on X (formerly Twitter).</p>
+</section>
+
+<footer>
+  <span data-lang="ja">Windcraft — minato ryo</span>
+  <span data-lang="en">Windcraft — minato ryo</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var btnJa = document.getElementById('btn-ja');
+  var btnEn = document.getElementById('btn-en');
+
+  function apply(lang){
+    document.documentElement.lang = lang;
+    var nodes = document.querySelectorAll('[data-lang]');
+    for (var i=0;i<nodes.length;i++){
+      var n = nodes[i];
+      if (n.getAttribute('data-lang') === lang) { n.classList.add('on'); }
+      else { n.classList.remove('on'); }
+    }
+    btnJa.setAttribute('aria-pressed', lang === 'ja');
+    btnEn.setAttribute('aria-pressed', lang === 'en');
+  }
+
+  btnJa.addEventListener('click', function(){ apply('ja'); });
+  btnEn.addEventListener('click', function(){ apply('en'); });
+
+  var nav = (navigator.language || 'ja').toLowerCase();
+  apply(nav.indexOf('ja') === 0 ? 'ja' : 'en');
+})();
+</script>
+</body>
+</html>
