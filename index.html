@@ -74,6 +74,19 @@
   }
   .contact .mail{font-family:var(--mono);font-size:16px;color:var(--gold);word-break:break-all}
 
+  /* ---- app index ---- */
+  .app-index{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
+    margin:20px 0 0
+  }
+  .app-index a{
+    display:block;padding:14px 16px;background:var(--ink-soft);
+    border:1px solid var(--line);border-radius:10px;color:var(--text);
+    text-decoration:none;font-size:14px;transition:border-color .18s,color .18s
+  }
+  .app-index a:hover,.app-index a:focus-visible{border-color:var(--teal);color:#fff}
+  @media (max-width:520px){.app-index{grid-template-columns:1fr}}
+
   /* ---- sections ---- */
   section{margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
   h2{
@@ -87,6 +100,10 @@
   li{margin-bottom:6px}
   li::marker{color:var(--teal)}
   strong{color:#fff;font-weight:600}
+  .privacy-link{
+    display:inline-block;margin-top:8px;color:var(--teal);
+    text-underline-offset:3px
+  }
 
   footer{
     margin-top:64px;padding-top:28px;border-top:1px solid var(--line);
@@ -108,8 +125,8 @@
   </svg>
   <p class="eyebrow">Windcraft</p>
   <h1>Support</h1>
-  <p class="tagline" data-lang="ja">Windcraft制作アプリのサポート窓口です。</p>
-  <p class="tagline" data-lang="en">Help and contact for apps made by Windcraft.</p>
+  <p class="tagline" data-lang="ja">Windcraftの全アプリ共通サポートページです。</p>
+  <p class="tagline" data-lang="en">Support for all apps made by Windcraft.</p>
 
   <div class="lang" role="group" aria-label="Language / 言語">
     <button type="button" id="btn-ja" aria-pressed="true">日本語</button>
@@ -123,8 +140,19 @@
   <span class="mail">windcraft.support@gmail.com</span>
 </a>
 
+<nav class="app-index" aria-label="Apps / アプリ一覧">
+  <a href="#hikari" data-lang="ja">光跡カメラ</a>
+  <a href="#hikari" data-lang="en">Hikari Camera</a>
+  <a href="#iroha" data-lang="ja">五十音パズルいろは</a>
+  <a href="#iroha" data-lang="en">Iroha</a>
+  <a href="#rota" data-lang="ja">ROTA</a>
+  <a href="#rota" data-lang="en">ROTA</a>
+  <a href="#bansugoroku" data-lang="ja">盤双六</a>
+  <a href="#bansugoroku" data-lang="en">Ban-Sugoroku</a>
+</nav>
+
 <!-- ============ Hikari Camera ============ -->
-<section>
+<section id="hikari">
   <h2 data-lang="ja">光跡カメラ</h2>
   <h2 data-lang="en">Hikari Camera</h2>
   <p class="sub" data-lang="ja">Hikari Camera</p>
@@ -182,10 +210,12 @@
     <li data-lang="en"><strong>No sound in video</strong> — allow microphone access in the same Settings screen.</li>
     <li data-lang="en"><strong>Can't save</strong> — check photo library permission and free storage on your device.</li>
   </ul>
+  <a class="privacy-link" href="lighttrail-privacy.html" data-lang="ja">プライバシーポリシー</a>
+  <a class="privacy-link" href="lighttrail-privacy.html#en" data-lang="en">Privacy Policy</a>
 </section>
 
 <!-- ============ Iroha ============ -->
-<section>
+<section id="iroha">
   <h2 data-lang="ja">五十音パズルいろは</h2>
   <h2 data-lang="en">Iroha</h2>
   <p class="sub" data-lang="ja">Iroha</p>
@@ -193,6 +223,52 @@
 
   <p data-lang="ja">「いろはにほへと」のように、五十音を一文字ずつ使って意味のある長い文章を作る遊びです。作った結果はX(旧Twitter)に投稿できます。</p>
   <p data-lang="en">A word game in the tradition of the classic <em>Iroha</em> poem: build the longest meaningful sentence you can, using each kana character exactly once. You can share your result on X (formerly Twitter).</p>
+  <a class="privacy-link" href="privacy.md" data-lang="ja">プライバシーポリシー</a>
+  <a class="privacy-link" href="privacy.md" data-lang="en">Privacy Policy</a>
+</section>
+
+<!-- ============ ROTA ============ -->
+<section id="rota">
+  <h2 data-lang="ja">ROTA</h2>
+  <h2 data-lang="en">ROTA</h2>
+  <p class="sub" data-lang="ja">古代ローマのボードゲーム</p>
+  <p class="sub" data-lang="en">Ancient Roman board game</p>
+
+  <p data-lang="ja">古代ローマで遊ばれていたとされるボードゲーム「ROTA」を、オフラインで楽しめるアプリです。</p>
+  <p data-lang="en">An offline app for playing ROTA, a board game inspired by a game from ancient Rome.</p>
+  <a class="privacy-link" href="rota-privacy.html" data-lang="ja">プライバシーポリシー</a>
+  <a class="privacy-link" href="rota-privacy.html#en" data-lang="en">Privacy Policy</a>
+</section>
+
+<!-- ============ Ban-Sugoroku ============ -->
+<section id="bansugoroku">
+  <h2 data-lang="ja">盤双六</h2>
+  <h2 data-lang="en">Ban-Sugoroku</h2>
+  <p class="sub" data-lang="ja">日本の伝統的な盤上遊戯</p>
+  <p class="sub" data-lang="en">Traditional Japanese board game</p>
+
+  <p data-lang="ja">日本で古くから親しまれてきた盤双六をiOSで楽しめるボードゲームアプリです。</p>
+  <p data-lang="en">A board game app that brings the traditional Japanese game of Ban-Sugoroku to iOS.</p>
+
+  <h3 data-lang="ja">アプリ内課金について</h3>
+  <h3 data-lang="en">In-app purchases</h3>
+  <p data-lang="ja">アプリ内課金はAppleのStoreKitを通じて処理されます。購入が反映されない場合は、購入時と同じApple Accountでサインインしていることをご確認ください。</p>
+  <p data-lang="en">In-app purchases are processed through Apple's StoreKit. If a purchase is not reflected, make sure you are signed in with the same Apple Account used for the purchase.</p>
+  <a class="privacy-link" href="bansugoroku-privacy.html" data-lang="ja">プライバシーポリシー</a>
+  <a class="privacy-link" href="bansugoroku-privacy.html#en" data-lang="en">Privacy Policy</a>
+</section>
+
+<!-- ============ Common Support ============ -->
+<section id="common-support">
+  <h2 data-lang="ja">共通サポート</h2>
+  <h2 data-lang="en">General Support</h2>
+  <p class="sub" data-lang="ja">お問い合わせの前に</p>
+  <p class="sub" data-lang="en">Before contacting us</p>
+
+  <p data-lang="ja">不具合についてお問い合わせの際は、アプリ名、端末名、iOSのバージョン、問題が発生するまでの操作手順をお知らせください。</p>
+  <p data-lang="en">When reporting a problem, please include the app name, device model, iOS version, and the steps that lead to the issue.</p>
+  <p data-lang="ja">お問い合わせはページ上部のメールアドレスからお願いいたします。</p>
+  <p data-lang="en">Please use the email address at the top of this page to contact us.</p>
 </section>
 
 <footer>
